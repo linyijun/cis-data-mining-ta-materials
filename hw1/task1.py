@@ -1,18 +1,20 @@
 import pyspark
 import json
+import sys
 
 
 def main():
 
     # Task 1
-    review_path = '/Users/yijunlin/Github/cis-data-mining-ta-materials/datasets/review.json'
+    # review_path = '/Users/yijunlin/Github/cis-data-mining-ta-materials/datasets/review.json'
+    review_path = sys.argv[1]
     review_rdd = sc.textFile(review_path)
 
-    stopwords_file = ""
-    stopwords = []
-    f = open(stopwords_file, 'r')
-    for line in f:
-        stopwords.append(line.strip())
+    # stopwords_file = ""
+    # stopwords = []
+    # f = open(stopwords_file, 'r')
+    # for line in f:
+    #     stopwords.append(line.strip())
 
     # print(review_rdd.getNumPartitions())
     # print(review_rdd.take(1))
@@ -44,13 +46,29 @@ def main():
 
 if __name__ == '__main__':
 
-    sc_conf = pyspark.SparkConf() \
-        .setAppName('task1') \
-        .setMaster('local[*]') \
-        .set('spark.driver.memory', '8g') \
-        .set('spark.executor.memory', '4g')
+    # sc_conf = pyspark.SparkConf() \
+    #     .setAppName('task1') \
+    #     .setMaster('local[*]') \
+    #     .set('spark.driver.memory', '8g') \
+    #     .set('spark.executor.memory', '4g')
+    #
+    # sc = pyspark.SparkContext(conf=sc_conf)
+    # sc.setLogLevel("OFF")
+    #
+    # main()
 
-    sc = pyspark.SparkContext(conf=sc_conf)
-    sc.setLogLevel("OFF")
+    # a = 'skfhdkaljsfakjshfksd'
+    # b = json.loads(a)
 
-    main()
+    # a = '{"a": "asdf", "v": "asdfsdf"}'
+    # b = json.loads(a)
+    # print(b)
+
+    a = '2018'
+    b = int(a)
+    print(type(a), type(b))
+
+    a = '2kasdnbfkj'
+    b = int(a)
+
+    
