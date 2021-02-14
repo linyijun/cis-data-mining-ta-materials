@@ -3,10 +3,16 @@ import json
 import sys
 
 
+# Task 1
+
+
 def main():
 
-    # Task 1
+    # A
     # review_path = '/Users/yijunlin/Github/cis-data-mining-ta-materials/datasets/review.json'
+    # stopwords_file_path = '/Users/yijunlin/Github/cis-data-mining-ta-materials/datasets/stopwords'
+    #
+    #
     review_path = sys.argv[1]
     review_rdd = sc.textFile(review_path)
 
@@ -46,29 +52,13 @@ def main():
 
 if __name__ == '__main__':
 
-    # sc_conf = pyspark.SparkConf() \
-    #     .setAppName('task1') \
-    #     .setMaster('local[*]') \
-    #     .set('spark.driver.memory', '8g') \
-    #     .set('spark.executor.memory', '4g')
-    #
-    # sc = pyspark.SparkContext(conf=sc_conf)
-    # sc.setLogLevel("OFF")
-    #
-    # main()
+    sc_conf = pyspark.SparkConf() \
+        .setAppName('task1') \
+        .setMaster('local[*]') \
+        .set('spark.driver.memory', '8g') \
+        .set('spark.executor.memory', '4g')
 
-    # a = 'skfhdkaljsfakjshfksd'
-    # b = json.loads(a)
+    sc = pyspark.SparkContext(conf=sc_conf)
+    sc.setLogLevel("OFF")
 
-    # a = '{"a": "asdf", "v": "asdfsdf"}'
-    # b = json.loads(a)
-    # print(b)
-
-    a = '2018'
-    b = int(a)
-    print(type(a), type(b))
-
-    a = '2kasdnbfkj'
-    b = int(a)
-
-    
+    main()
